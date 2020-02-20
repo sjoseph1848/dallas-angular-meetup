@@ -7,6 +7,9 @@ import { DemoOneComponent } from './components/demo-one/demo-one.component';
 import { HomeComponent } from './components/home/home.component';
 import { DemoTwoComponent } from './components/demo-two/demo-two.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -18,9 +21,10 @@ import { NavbarComponent } from './components/navbar/navbar.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
-  providers: [],
+  providers: [AngularFirestore],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
