@@ -14,6 +14,8 @@ import { DemoOneComponent } from './components/demo-one/demo-one.component';
 import { HomeComponent } from './components/home/home.component';
 import { DemoTwoComponent } from './components/demo-two/demo-two.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FlightsCardListComponent } from './components/flights-card-list/flights-card-list.component';
 
 @NgModule({
   declarations: [
@@ -21,12 +23,14 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     DemoOneComponent,
     HomeComponent,
     DemoTwoComponent,
-    NavbarComponent
+    NavbarComponent,
+    FlightsCardListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig)
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    BrowserAnimationsModule
   ],
   providers: [AngularFirestore],
   bootstrap: [AppComponent]

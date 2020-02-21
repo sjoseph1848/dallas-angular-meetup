@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "dallas-angular": {
+      "hosting": {
+        "dallas-angular": [
+          "dallas-angular"
+        ]
+      }
+    }
+  }
+}
