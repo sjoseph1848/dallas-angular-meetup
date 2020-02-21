@@ -12,6 +12,8 @@ import { map } from 'rxjs/operators';
 })
 export class HomeComponent implements OnInit {
   flights$: Observable<Flight[]>;
+  dallasFlights$: Observable<Flight[]>;
+
   constructor(private db: AngularFirestore) { }
 
   ngOnInit() {
@@ -19,12 +21,16 @@ export class HomeComponent implements OnInit {
    this.flights$ = this.db.collection('flights').snapshotChanges()
       .pipe(map(snaps => {
         return snaps.map(snap => {
-          return <Flight> {
+          return {
             id: snap.payload.doc.id,
-            ...snap.payload.doc.data()
-          };
+            ...snap.payload.doc.data() as object
+          } as Flight;
         });
       }));
+
+      this.dallasFlights$ = this.flights$.pipe(
+        map(flights => flights.filter(
+          flight => flight.departureCity.includes("Dallas"))));
   }
 
 }

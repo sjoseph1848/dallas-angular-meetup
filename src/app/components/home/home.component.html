@@ -2,7 +2,9 @@
 <div class="container">
   <h1>Flights</h1>
   <app-flights-card-list
-      [flights]="flights$ | async">
+      [flights]="flights$ | async"
+      [dallasFlights]="dallasFlights$ | async"
+      >
 
   </app-flights-card-list>
 

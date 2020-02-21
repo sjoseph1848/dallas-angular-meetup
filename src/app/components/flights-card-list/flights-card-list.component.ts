@@ -9,10 +9,14 @@ import { Flight } from 'src/app/models/flight';
 export class FlightsCardListComponent implements OnInit {
   @Input()
   flights: Flight[];
+
+  @Input()
+  dallasFlights: Flight[];
+
   constructor() { }
 
   ngOnInit() {
-    console.log(this.flights)
+
   }
 
 }
