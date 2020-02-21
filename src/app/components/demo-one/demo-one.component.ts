@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { AngularFirestore } from '@angular/fire/firestore';
 @Component({
   selector: 'app-demo-one',
   templateUrl: './demo-one.component.html',
@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DemoOneComponent implements OnInit {
 
-  constructor() { }
+  constructor(private db: AngularFirestore) { }
 
   ngOnInit() {
+
+    this.db.collection('flights').valueChanges().subscribe(
+      val => console.log(val)
+    )
   }
 
 }
